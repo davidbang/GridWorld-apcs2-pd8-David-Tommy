@@ -1,11 +1,11 @@
 import info.gridworld.actor.Bug;
 
-public class BoxBug extends Bug
-{
+
+public class SpiralBug extends Bug{
     private int steps;
     private int sideLength;
 
-    public BoxBug(int length)
+    public SpiralBug(int length)
     {
         steps = 0;
         sideLength = length;
@@ -14,15 +14,16 @@ public class BoxBug extends Bug
     public void act()
     {
         if (steps < sideLength && canMove())
-        {
-            move();
-            steps++;
-        }
+	    {
+		move();
+		steps++;
+	    }
         else
-        {
-            turn();
-            turn();
-            steps = 0;
-        }
+	    {
+		turn();
+		turn();
+		sideLength ++;
+		steps = 0;
+	    }
     }
 }
